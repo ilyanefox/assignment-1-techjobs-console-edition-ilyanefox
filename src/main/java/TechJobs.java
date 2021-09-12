@@ -60,10 +60,16 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
+                //String searchTerm = in.nextLine().toUpperCase();
+                boolean isEqualString = searchField.equalsIgnoreCase(searchTerm);
+
 
                 if (searchField.equals("all")) {
+                    isEqualString = true;
+                    //searchTerm = searchTerm.toUpperCase();
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
+                    //searchTerm = searchTerm.toUpperCase;
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }

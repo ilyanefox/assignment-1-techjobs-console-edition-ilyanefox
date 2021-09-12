@@ -99,19 +99,23 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
+            for (String key : row.keySet()) {
 
-            String bValue = row.get(value);
+            String bValue = row.get(key);
 
-            if (bValue.contains(value) && !jobs.contains(value)) {
+            if (bValue.toLowerCase().contains(value.toLowerCase())) {
+
                 jobs.add(row);
+
+                break;
             }
 
-            for (Map.Entry<String, String> jobColumn : row.entrySet()) {
-                System.out.println(jobColumn.getKey() + ": " + jobColumn.getValue() + "\n");
+            //for (Map.Entry<String, String> jobColumn : row.entrySet()) {
+                //System.out.println(jobColumn.getKey() + ": " + jobColumn.getValue() + "\n");
 
             }
         }
-        return null;
+        return jobs;
     }
 
     /**
