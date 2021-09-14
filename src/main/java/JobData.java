@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
-
+import java.util.Collections;
 /**
  * Created by LaunchCode
  */
@@ -78,6 +78,8 @@ public class JobData {
 
             if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
+
+
             }
         }
 
@@ -101,18 +103,14 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
             for (String key : row.keySet()) {
 
-            String bValue = row.get(key);
+            String aValue = row.get(key);
 
-            if (bValue.toLowerCase().contains(value.toLowerCase())) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
 
                 jobs.add(row);
 
                 break;
             }
-
-            //for (Map.Entry<String, String> jobColumn : row.entrySet()) {
-                //System.out.println(jobColumn.getKey() + ": " + jobColumn.getValue() + "\n");
-
             }
         }
         return jobs;
